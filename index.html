@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>zhenghuanle's blog</title>
     <style>
+        /* 通用样式 */
         *{
             padding: 0;
             margin: 0;
@@ -16,12 +17,13 @@
             clear:both;
             visibility:hidden; 
         }
-        .content{
-            width: 84%;
-            /* min-width: 640px; */
-            /* max-width: 1200px; */
+        .content,.contact-main{
+            /* width: 84%; */
+            min-width: 640px;
+            max-width: 1200px;
             margin: 0 auto;
         }
+        /* header */
         header{
             display: flex;
         }
@@ -35,6 +37,7 @@
             color: #fff;
             border-bottom-left-radius: 5px;
             border-bottom-right-radius: 5px;
+            box-shadow: 0 6px 6px #ddd;
         }
         header nav{
             flex-grow: 4; 
@@ -70,20 +73,43 @@
             background: #ff9985;
         }
         header .wechat{
+            position: relative;
             flex-grow: 1;
             padding-top: 50px;
             text-align: right;
+        }
+        .wechat #weixinImg{
+            display: none;
+            position: absolute;
+            right: -58px;
+            bottom: -144px;
+            width: 150px;
+            height: 150px;
         }
         header .wechat img{
             width: 30px;
             height: 30px;
             cursor: pointer;
         }
+        /* banner */
+        .banner{
+            padding-top: 100px;
+            padding-left: 52px;
+            padding-bottom: 110px;
+        }
         .banner-text{
             width:40%;
+            padding-top: 20px;
             float: left;
         }
+        .banner-text p{
+            margin-bottom: 20px;
+        }
+        .banner-text span{
+            color: #848484;
+        }
         .banner-img{
+            position: relative;
             width:60%;
             float: left;
         }
@@ -91,19 +117,79 @@
             width: 100%;
             height: 100%;
         }
+        .banner-text h2{
+            font-size: 28px;
+            padding-bottom: 40px;
+        }
+        .banner-text p{
+            font-size: 18px;
+        }
+        .banner-text hr{
+            width: 42px;
+            height: 3px;
+            padding-top: 5px;
+            margin-bottom: 110px;
+            background: #000;
+        }
+        .banner-li{
+            position:absolute;
+            left: 15%;
+            bottom: -65px;
+            text-align: center;
+        }
+        .banner-li i{
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            cursor: pointer;
+            background: #848484;
+        }
+        /* can */
+        .can{
+            background: #ff9985;
+        }
+        .can-main{
+            padding: 85px 55px;
+            margin-bottom: 5px;
+        }
+        .can-main .can-main-left{
+            background-image: url('images/背景星星.png');
+        }
+        /* resume-top img*/
+        .resume-top img{
+            width: 100%;
+        }
+
+        /* 联系我 */
+        .contact{
+            padding-top: 50px;
+        }
         .contact,.copyright{
             background: #ff9985;
             color: #fff;
             text-align: center;
         }
-        .contact{
+        .contact-main{
             display: flex;
         }
-        .contact1,.contact2,.contact3{
+        .contact-main .contact1{
             flex-grow: 1;
+            text-align: center;
         }
-        .contact1{
-
+        .contact1-main{
+            width: 260px;
+            margin: auto;
+        }
+        .contact1 .contact1-text{
+            padding:0 10px;
+            float: left;
+        }
+        .contact1 .contact1-text p{
+            line-height: 30px;
+        }
+        .contact1 img{
+            float: left;
         }
         .copyright{
             padding-top: 60px;
@@ -126,15 +212,17 @@
                     <li><a href="">联系</a></li>
                 </ul>
             </nav>
-            <div class="wechat">
-                <i><img src="imaegs/dribbble-circle-fill@2x.png" title="主页" alt=""></i>
-                <i><img src="imaegs/weixin-copy@2x.png" title="微信" alt=""></i>
+            <div class="wechat" id="wechat">
+                <i><img src="images/dribbble-circle-fill@2x.png" title="主页" alt=""></i>
+                <i><img id="weixinShow" src="images/weixin-copy@2x.png" title="" alt=""></i>
+                <img id="weixinImg" src="images/weixinShow.jpg" alt="">
             </div>
         </header>
         <div class="banner clearfix">
             <div class="banner-text">
                 <h2>Heelo</h2>
                 <h2>DESIGNER</h2>
+                <hr>
                 <p><span>姓名：</span>郑欢乐</p>
                 <p><span>年龄：</span>25岁</p>
                 <p><span>爱好：</span>绘画、摄影、旅行</p>
@@ -142,46 +230,91 @@
                 
             </div>
             <div class="banner-img">
-                <img src="imaegs/chatu1@2x.png" alt="">
+                <img id="bannerImg" src="images/chatu1.png" alt="">
+                <div class="banner-li">
+                    <i style="background: #ff9985;"></i>
+                    &nbsp;
+                    &nbsp;
+                    <i></i>
+                </div>
             </div>
         </div>
-        <div class="can">
-
+    </div>    
+    <div class="can">
+        <div class="content">
+            <div class="can-main">
+                <div class="can-main-left">
+                        <h2>WHAT CAN I DO?</h2>
+                        <h3>我能做什么</h3>
+                </div>
+            </div>
         </div>
+    </div>
+    <div class="resume-top">
+        <img src="images/背景-2.png" alt="">
+    </div>
+    <div class="content">
         <div class="resume">
 
         </div>
-        <div class="contact">
+    </div>
+    <div class="contact">
+        <div class="contact-main">
             <div class="contact1">
-                <img src="imaegs/weixin-2.png" alt="">
-                <div>
-                    <p>微信</p>
-                    <p>/WeChat</p>
-                    <p>18235168241</p>
+                <div class="contact1-main clearfix">
+                    <img src="images/weixin-2.png" alt="">
+                    <div class="contact1-text">
+                        <p>微信</p>
+                        <p>/WeChat</p>
+                        <p>18235168241</p>
+                    </div>
                 </div>
             </div>
             <div class="contact1">
-                <img src="imaegs/mail.png" alt="">
-                <div>
-                    <p>电子邮箱</p>
-                    <p>/E-mail</p>
-                    <p>821383648@qq.com</p>
+                <div class="contact1-main clearfix">
+                    <img src="images/mail.png" alt="">
+                    <div class="contact1-text">
+                        <p>电子邮箱</p>
+                        <p>/E-mail</p>
+                        <p>821383648@qq.com</p>
+                    </div>
                 </div>
             </div>
             <div class="contact1">
-                <img src="imaegs/qq.png" alt="">
-                <div>
-                    <p>QQ号</p>
-                    <p>/QQ number</p>
-                    <p>821383648</p>
+                <div class="contact1-main clearfix">
+                    <img src="images/qq.png" alt="">
+                    <div class="contact1-text">
+                        <p>QQ号</p>
+                        <p>/QQ number</p>
+                        <p>821383648</p>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="copyright">
-            <p>zhenghuanle@2017-2018</p>
         </div>
     </div>
+    <div class="copyright">
+        <p>zhenghuanle@2017-2018</p>
+    </div>
     <script>
+        var banneri= document.querySelector('.banner-li').children;
+        banneri[0].onmouseover= function(){
+            bannerImg.src="images/chatu2.png";
+            banneri[0].style.backgroundColor = "#ff9985";
+            banneri[1].style.backgroundColor = "#848484";
+        }
+        banneri[1].onmouseover= function(){
+            bannerImg.src="images/chatu1.png";
+            banneri[0].style.backgroundColor = "#848484";
+            banneri[1].style.backgroundColor = "#ff9985";
+        }
+
+        weixinShow.onmouseover=function(){
+            weixinImg.style.display="block"
+        }
+        wechat.onmouseout=function(){
+            weixinImg.style.display="none"
+        }
+
 
     </script>
 </body>
