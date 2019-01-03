@@ -86,9 +86,20 @@ header .wechat img{
 }
 /* banner */
 .banner{
+    position: relative;
     padding-top: 100px;
     padding-left: 52px;
+    padding-right: 52px;
     padding-bottom: 110px;
+}
+.banner-main2{
+    display: none;
+}
+.banner-main2 .banner-text{
+    text-align: center;
+}
+.banner-main2 .banner-text hr{
+    display: none;
 }
 .banner-text{
     width:40%;
@@ -102,7 +113,6 @@ header .wechat img{
     color: #848484;
 }
 .banner-img{
-    position: relative;
     width:60%;
     float: left;
 }
@@ -125,9 +135,10 @@ header .wechat img{
     background: #000;
 }
 .banner-li{
-    position:absolute;
-    left: 15%;
-    bottom: -65px;
+    position: absolute;
+    left: 50%;
+    margin-left: -38px;
+    bottom: 40px;
     text-align: center;
 }
 .banner-li i{
@@ -166,7 +177,7 @@ header .wechat img{
     width: 203px;
     height: 145px;
     float: left;
-    background-image: url('../images/背景星星.png');
+    background-image: url('../images/bgstar.png');
     color: #fff;
 }
 .can-main .can-main-left>h2{
@@ -216,7 +227,7 @@ header .wechat img{
     width: 126px;
     height: 137px;
     margin: 0 auto;
-    background: url('../images/五边圆角.png') no-repeat;
+    background: url('../images/fiveSides.png') no-repeat;
     color: #fff;
     font-size: 16px;
 }   
@@ -292,4 +303,68 @@ header .wechat img{
     padding-top: 60px;
     padding-bottom:20px;
     font-size: 13px;
+}
+
+/* works.html */
+.works-main{
+    width:1000px;
+    margin:0 auto;
+    padding: 70px 0;
+}
+.works-main .box{
+    list-style: none;
+    margin-bottom: 60px;
+}
+.works-main .box .img{
+    width: 47%;
+    float: left;
+}
+.works-main .box .img img{
+    width: 100%;
+    height: 300px;
+}
+.works-main .box .text{
+    width: 47%;
+    float: right;
+}
+.works-main .text h2{
+    width:423px;
+    font-size:31px;
+    color: #7B6E6B;
+    font-weight:600;
+}
+.works-main .text span{
+    display: block;
+    color: #FF9985;
+    width:174px;
+    height:23px;
+    font-size:16px;
+    font-family:Arial-Black;
+    font-weight:900;
+    line-height:23px;
+    letter-spacing:2px;
+}
+.works-main .text p{
+    color: #9CA0A2;
+    margin-bottom: 30px;
+}
+.works-main .text .button{
+    width:242px;
+    height:56px;
+    background:rgba(255,153,133,1);
+    line-height: 56px;
+    text-align: center;
+    border-radius:3px;
+    color: #fff;
+    font-size: 22px;
+    cursor: pointer;
+}
+.works-main .text .button:hover{
+    background: #cc2100;
+}
+.works-main li:nth-last-child(odd) .text{
+    float: left;
+}
+.works-main li:nth-last-child(odd) .img{
+    float: right;
 }
