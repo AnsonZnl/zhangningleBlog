@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <title>zhl</title>
+    <style>
+    *{
+        padding: 0;
+        margin: 0;
+        font-size: .12rem;
+        box-sizing: border-box;
+    }
+    .clearfix:after{
+        content:"";
+        display:block;
+        clear:both;
+        visibility:hidden; 
+    }
+    .box{
+        margin: 0 auto;
+        max-width:6.5rem;
+        min-width:3.75rem;
+        height:100vh;
+        overflow: hidden;
+    }
+    .content{
+        position: relative;
+        left: -100px;
+        max-width:6.5rem;
+        min-width:3.75rem;
+        height:100vh;
+    }
+    .nav,.main{
+        position: absolute;
+        top:0;
+    }
+    .nav{
+        left: 0;
+        width: 100px;
+        background: #5ba497;
+        height: 100%;
+        padding: 15px 0;
+    }
+    .nav a{
+        display: block;
+        width: 100%;
+        height: .6rem;
+        line-height: .6rem;
+        margin-bottom: 10px;
+        color: #fff;
+        font-size: 0.3rem;
+        text-align: center;
+        cursor: pointer;
+    }
+    .nav .active{
+        background: #3d8074;
+    }
+    #navButton,.social-link{
+        display: block;
+        width:.5rem;
+        height:.5rem;
+        line-height:.45rem;
+        text-align:center;
+        border-radius:50%;
+        color:#5ba497;
+        cursor:pointer;
+        font-size: .3rem;
+        border: #5ba497 2px solid;
+    }
+    .header{
+        padding-left: 5px;
+        padding-right: 5px;
+        margin-bottom: 20px;
+    }
+    #navButton{
+        float: left;
+    }
+    .social-link{
+        float: right;
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+    .main{
+        left: 100px;
+        width: 100%;
+        height: 100%;
+        padding:10px;
+    }
+    .main h3{
+        font-size: 0.4rem;
+    }
+    .main2,.main3,.main4{
+        display: none;
+    }
+    </style>
+    <script src="js/fontSize.js"></script>
+</head>
+<body>
+<div class="box">
+    <div class="content" id="content">
+        <div class="nav">
+            <a class="link active">主页</a>
+            <a class="link ">新闻</a>
+            <a class="link ">热点</a>
+            <a class="link ">关于</a>
+        </div>
+        <div class="main">
+            <div class="header clearfix">
+                <span id="navButton"> > </span>
+                <div class="social clearfix">
+                    <a class="social-link"> b </a>
+                    <a class="social-link"> a </a>
+                    <a class="social-link"> t </a>
+                    <a class="social-link"> w </a>
+                </div>
+            </div>
+            <div class="main1 main-class">
+                <h3>主页</h3>
+                我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容
+                我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容
+            </div>
+            <div class="main2 main-class">
+                <h3>新闻</h3>
+                我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容
+                我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容
+            </div>
+            <div class="main3 main-class">
+                <h3>热点</h3>
+                我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容
+                我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容
+            </div>
+            <div class="main4 main-class">
+                <h3>关于</h3>
+                我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容
+                我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容
+            </div>
+        </div>
+        
+    </div>    
+</div>
+ <script>
+    //  左侧导航滑动
+ function left(){
+    var ml = -100;
+    var timeLeft = setInterval(function(){
+        ml += 5;
+        if(ml <= 0){
+            content.style.left = ml + "px";
+        }else{
+            clearInterval(timeLeft);
+        }
+    }, 20);
+    navButton.innerHTML= '<';
+}
+function right(){
+    var ml = 0;
+    var timeLeft = setInterval(function(){
+        ml -= 5;
+        if(ml >= -100){
+            content.style.left = ml + "px";
+        }else{
+            clearInterval(timeLeft);
+        }
+    }, 20);
+    navButton.innerHTML= '>';
+}
+
+var ml= content.style.left = "-100px";
+navButton.onclick=function (){
+    console.log(ml);
+    if(content.style.left == "-100px"){
+        left();
+    }else{
+        right();
+    }
+}
+
+// 导航栏切换
+var mainClass= document.querySelectorAll('.main-class');
+var link= document.querySelectorAll('.link');
+var len= link.length;
+
+console.log(mainClass, link);
+for(var i=0; i<len; i++){
+    (function (j){
+        link[j].onclick=function(){
+            right();
+            for(var n=0; n<len; n++){
+                link[n].classList.remove('active');
+                mainClass[n].style.display="none";
+            }
+            this.classList.add('active');
+            mainClass[j].style.display='block';
+        }
+    })(i)
+}
+</script> 
+</body>
+</html>
