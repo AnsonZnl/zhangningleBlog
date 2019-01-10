@@ -120,3 +120,89 @@ function test(person) {
   console.log(p1) // -> ? { name:'yck', age: 26 }
   console.log(p2) // -> ? { name:'yyy', age: 30 }
   */
+
+  // class Person{}
+  // console.log(Person instanceof Function)
+
+  //组合继承
+  /*
+  function Parent(value){
+    this.val = value;
+  }
+  Perent.prototype.getValue = function(){
+    console.log(this.val);
+  }
+  function Child(value){
+    Parent.call(this, value);
+  }
+  Child.prototype = new Parent()
+  const child = new Parent();
+  child.getValue();
+  console.log(child instanceof Parent);
+  */
+/*
+
+  //重写原型对象后，切断了现有原型与任何之前已经存在的对象的实例之间的联系。
+  //相当于把新的对象(内存地址/指针),赋给了原型对象
+  //重写原型对象之后新的原型对象的constrctor指向Object()构造函数
+ function Person(){};
+ var friend = new Person();
+//  Person.prototype.name='zzz';
+ Person.prototype = {
+   name:'zzz'
+ }
+console.log(friend.name);//undefined
+console.log(Person.prototype.constructor === Person);//false
+console.log(Person.prototype.constructor === Object);//true
+*/
+/*
+// 原生对象的原型 
+原型模式的重要性不仅体现在创建自定义类型方面，就连所有原生的引用类型，都是采用这种模式创建的。
+所有的原生引用类型（Object、Array、String等等）都在其构造函数的原型上定义了方法。
+如：在Array.prototype中可以找到push()方法，而在String.prototype中可以找到substring方法
+如：
+typeof Array.prototype.sort --> 'function'
+typeof String.prototype.substring --> 'function'
+
+通过原生对象的原型，不仅可以取得所有默认方法的引用。
+而且可以定义新方法，可以像修改自定义对象的原型一样修改原生对象的原型，因此可以随时添加方法。
+下面就给基本包装类型添加一个helloName()的方法
+String.prototype.helloName = function(){
+    return 'Hello ' + this;
+}
+var name= 'zzz';
+name.helloName();//'Hello zzz'
+*/
+/*
+组合使用构造函数模式和原型模式（组合模式）
+使用构造函数模式的缺点：
+   构造函数上的每个方法都要在实例上重新创建一遍，创建多个实例时，易造成内存浪费。
+使用原型模式的缺点：
+   原型上的属性和方法对实例是共享的。
+   原型上存在引用类型的话，实例对原型上引用类型的改变，
+   则会改变其原型的引用类型，进而造成对其他实例的污染。
+
+   而这种构造函数和原型组合成的模式，可以很好的避开这两个缺点。也是比较常用的模式
+
+   在组合模式中，实例属性都是在构造函数中定义的，而实例共享的属性和方法，都在原型中定义。
+结果是，每个实例都有属于自己的属性，同时又共享使用同一个方法，
+这种方法，既节省了内存，又支持了构造函数传参，可谓是集两种模式之所长。
+
+function Person(name, age){
+  this.name = name;
+  this.age = age;
+}
+Person.prototype = {
+  constructor: Person,
+  sayName: function (){ console.log(this.name) }
+}
+
+var person1= new Person('小明', 18);
+var person2= new Person('小亮', 19);
+
+person1.sayName() //小明
+person2.sayName() //小亮
+person1.sayName === person2.sayName //true
+
+
+*/
